@@ -34,7 +34,7 @@ $(function(){
             data: data,
             success: function(data) {
                 console.log('success');
-                console.log(data.status);
+                console.log(data);
                 // switch (data.status) {
                 switch (data.status) {
                     case 1:
@@ -52,6 +52,9 @@ $(function(){
                         break;
                     case 99:
                         alert("Thẻ chờ xử lý!");
+                        break;
+                    case 101:
+                        alert("Thẻ không tồn tại!");
                         break;
                     default:
                         alert("Gửi thẻ thất bại - Có lý do đi kèm ở phần thông báo trả về") ;
