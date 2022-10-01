@@ -9,8 +9,6 @@ const app = express();
 app.use(express.urlencoded());  
 app.use(express.json());
 
-
-
 const server = app.listen(PORT, () => {
     console.log(`Express running → PORT ${server.address().port}`);
 });
