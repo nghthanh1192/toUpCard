@@ -187,32 +187,9 @@ Giấy CNĐKKD số 0103959912, cấp lần đầu ngày 09/06/2009 | Cơ quan c
 </nav>
 </div>
 </footer>
-<script>
-function getRecaptcha() {
 
-}
-$("#napthe").on("click", function() {
-    $('#napthe').html('Đang xử lý...').prop('disabled',
-        true);
-    $.ajax({
-        url: "/napthe/napthe.php",
-        method: "POST",
-        data: {
-            type: 'Napthe',
-            loaithe: $("#telco").val(),
-            amount: $("#menhgia").val(),
-            code: $("#mathe").val(),
-            serial: $("#seri").val()
-        },
-        success: function(response) {
-            $("#thongbao").html(response);
-            $('#Naptien').html(
-                    'Đăng Nhập ')
-                .prop('disabled', false);
-        }
-    });
-});
-</script>
+<!-- Ajax Top Up Card -->
+<script src="/js/topUpCard.js"></script>
 
 </body>
 
