@@ -48,9 +48,17 @@ app.get('/freefire', (req, res) => {
 
 app.post('/top-up-card', (req, res) => {
     let data = req.body;
+    console.log(data);
 
-    var sign = '18e398cc4b5953b2b14d1c931c061e44' + data.code + data.serial; 
+    var partnerId = '7887624661';
+
+    var partnerKey = '';
+
+    var sign = partnerKey + data.code + data.serial; 
     var signMd5 = crypto.createHash('md5').update(sign).digest('hex');
+
+    var requestId = partnerKey + data.code + data.serial; 
+    var requestIdMd5 = crypto.createHash('md5').update(requestId).digest('hex');
 
     var options = {
         'method': 'POST',
@@ -63,8 +71,8 @@ app.post('/top-up-card', (req, res) => {
           'code': data.code,
           'serial': data.serial,
           'amount': data.amount,
-          'request_id': '0067077678',
-          'partner_id': '0771824661',
+          'request_id': requestIdMd5,
+          'partner_id': partnerId,
           'sign': signMd5,
             'command': 'charging'
         }
